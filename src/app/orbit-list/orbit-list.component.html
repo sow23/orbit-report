@@ -10,11 +10,8 @@
     <!-- TODO: put <tr *ngFor=""></tr> here -->
     <tr *ngFor="let table of satellites">
         <td>{{table.name}}</td>
-        <!-- <td class = 'warning' *ngIf = "{{table.type}} == 'Space Debris'; else noWarn">{{table.type}}</td>
-        <ng-template #noWarn>
-            <td>{{table.type}}</td>
-        </ng-template> -->
-        <td>{{table.type}}</td>
+        <td [class.warning]="table.shouldShowWarning()">{{table.type}} </td>
+        <!-- <td>{{table.type}}</td> -->
         <td>{{table.operational}}</td>
         <td>{{table.orbitType}}</td>
         <td>{{table.launchDate}}</td>
